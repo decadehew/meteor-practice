@@ -1,0 +1,49 @@
+<head>
+  <title>my_fridge</title>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+
+<body>
+  <h1>Welcome to Fridge | <i>Meteor in Action</i></h1>
+
+  {{> container}}
+</body>
+
+<template name="container">
+  <div class="conatiner">
+    <div class="left">
+      {{> fridge}}
+    </div>
+    
+    <div class="right">
+      {{> productList}}
+    </div>
+  </div>
+</template>
+
+<template name="fridge">
+  <div id="fridge">
+    <img class="image-responsive" src="/empty-fridge.jpg" />
+    <ul>
+     {{#each products}}
+       <li>{{> productListItem}}</li>
+     {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="productList">
+ <div id="supermarket" class="box">
+   <ul id="products">
+     {{#each products}}
+       <li>{{> productListItem}}</li>
+     {{/each}}
+   </ul>
+ </div>
+</template>
+
+<template name="productListItem">
+  <img src="{{img}}"
+  data-id="{{_id}}"
+  class="image-responsive product-image draggable" />
+</template>
